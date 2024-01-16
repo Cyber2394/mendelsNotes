@@ -45,6 +45,7 @@ class LoginController extends Controller
                 'email' => $user->email,
                 'password' => bcrypt('your_default_password'),
                 'access_token' => $user->token,
+                'refresh_token' => "temp for now",
             ]);
 
             Auth::login($newUser, true);
