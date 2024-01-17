@@ -23,7 +23,7 @@ use App\Http\Controllers\GoogleDocsController;
 Auth::routes();
 
 Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
-Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
+Route::get('login/google/callback', [LoginController::class, 'handleGoogleCallback']);
 
 Route::get('/google-docs/{id}', [GoogleDocsController::class, 'view']);
 Route::get('/google-docs-view', [GoogleDocsController::class, 'index']);
