@@ -21,6 +21,7 @@ class LoginController extends Controller
             ->scopes([
                 'https://www.googleapis.com/auth/documents.readonly',
                 'https://www.googleapis.com/auth/drive.file',
+                'https://www.googleapis.com/auth/plus.login', // Include 'offline' scope
             ])
             ->redirect();
     }
@@ -45,7 +46,7 @@ class LoginController extends Controller
                 'email' => $user->email,
                 'password' => bcrypt('your_default_password'),
                 'access_token' => $user->token,
-                'refresh_token' => "temp for now",
+                'refresh_token' => $user->refreshToken, // Store the refresh token if available
             ]);
 
             Auth::login($newUser, true);
