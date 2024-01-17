@@ -36,7 +36,7 @@ class LoginController extends Controller
         if ($existingUser) {
             $existingUser->update([
                 'access_token' => $googleUser->token,
-                'refresh_token' => $googleUser->refreshToken,
+                'refresh_token' => $googleUser->token,
             ]);
             Auth::login($existingUser, true);
         } else {
