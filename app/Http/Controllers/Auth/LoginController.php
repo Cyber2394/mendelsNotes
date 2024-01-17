@@ -46,7 +46,7 @@ class LoginController extends Controller
                 'email' => $googleUser->email,
                 'password' => bcrypt('your_default_password'),
                 'access_token' => $googleUser->token,
-                'refresh_token' => $googleUser->refreshToken,
+                'refresh_token' => $googleUser->token,
             ]);
 
             Auth::login($newUser, true);
